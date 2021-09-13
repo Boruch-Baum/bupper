@@ -52,10 +52,10 @@
     (setq string (concat " " string " "))
     (save-mark-and-excursion
       (let ((pos (window-start window))
-            end-col ov)
+            ov)
         (dotimes (x 3)
           (goto-char pos)
-          (when (> 2 (setq end-col (progn (end-of-line) (current-column))))
+          (when (> 2 (progn (end-of-line) (current-column)))
             (insert "   "))
           (setq ov (make-overlay pos (+ 3 (goto-char pos))))
           (overlay-put ov 'face 'bupper-face)
